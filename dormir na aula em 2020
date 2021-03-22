@@ -1,0 +1,19 @@
+from datetime import datetime
+from threading import Timer
+import subprocess
+import pyautogui
+x=datetime.today()
+y=x.replace(day=x.day+1, hour=11, minute=4, second=50, microsecond=0)
+delta_t=y-x
+
+secs=delta_t.seconds+1
+
+def aula():
+    subprocess.call(
+        ["/usr/bin/open", "-W", "-n", "-a", "/Applications/Microsoft Teams.app"]
+    )
+    pyautogui.click(1192, 368)
+    pyautogui.click(577, 740)
+t = Timer(secs, aula)
+t.start()
+ 
